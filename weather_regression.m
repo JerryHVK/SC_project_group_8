@@ -1,17 +1,17 @@
-data = csvread('tesla.csv');
-n = 160;
+data = csvread('weather_prediction_dataset.csv');
+n = 300;
 X = data(1:n, 1);
-Y = data(1:n, 6);
+Y = data(1:n, 9);
 
 
 % Define the order of the polynomial for curve fitting
-order = 3;
+order = 4;
 
 % Fit a polynomial regression model
 coefficients = polyfit(X, Y, order);
 
 % Define the x-values for extrapolation
-x = n;
+x = n+1;
 
 % Evaluate the polynomial at the extrapolation point
 y = polyval(coefficients, x);

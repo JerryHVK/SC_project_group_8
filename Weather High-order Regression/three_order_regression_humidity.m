@@ -1,5 +1,5 @@
 data = csvread('weather_in_basel.csv');
-n = 100;
+n = 200;
 X = data(1:n, 1);
 Y = data(1:n, 2);
 
@@ -10,12 +10,14 @@ order = 3;
 % Fit a polynomial regression model
 coefficients = polyfit(X, Y, order);
 
+% Evaluate the polynomial at the extrapolation point
+y = polyval(coefficients, x);
+
 % Define the x-values for extrapolation
 x = n+1;
 yreal = data(x, 2);
 
-% Evaluate the polynomial at the extrapolation point
-y = polyval(coefficients, x);
+
 
 % Output the extrapolated value
 fprintf("The prediction result: %.4f\n", y);

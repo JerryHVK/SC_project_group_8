@@ -19,9 +19,8 @@ x = n+1;
 y = polyval(coefficients, x);
 
 % Output the extrapolated value
-y
-yreal
-
+printf("The prediction result: %.4lf\n", y);
+printf("The real data: %.4lf\n", yreal);
 % Plot the fitted polynomial curve
 x_fit = linspace(min(X), max(X), 100);  % Generate x-values for the curve
 y_fit = polyval(coefficients, x_fit);   % Evaluate the polynomial at the x-values

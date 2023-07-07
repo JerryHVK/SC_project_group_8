@@ -1,10 +1,7 @@
-data = csvread('weather_in_basel.csv');
-n = 300;
-X = data(1:n, 1);
-Y = data(1:n, 3);
-
-yreal = data(n+1, 3);
-
+data = readmatrix('NVDA (1).csv', 'NumHeaderLines', 1);
+n = 160;
+X = 1:n;
+Y = data(1:n, 6);
 
 % Define the order of the polynomial for curve fitting
 order = 3;
@@ -32,8 +29,3 @@ hold on;
 plot(x, y, 'ko', 'MarkerFaceColor', 'g', 'MarkerSize', 8);
 
 plot(X, Y, '-')
-xlabel('Time')
-ylabel('Temperature')
-title('3-order-regression')
-
-legend('3 order regression','Forecasting Data', 'Original Data');

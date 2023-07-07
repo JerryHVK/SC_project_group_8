@@ -35,7 +35,7 @@ plot(x, y, 'ko', 'MarkerFaceColor', 'g', 'MarkerSize', 8);
 
 plot(X, Y, '-')
 xlabel('Time')
-ylabel('Rainfall')
+ylabel('Humidity')
 title('3-order-regression')
 
 legend('3 order regression','Forecasting Data', 'Original Data');

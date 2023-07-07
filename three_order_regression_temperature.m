@@ -1,7 +1,9 @@
-data = csvread('weather_prediction_dataset.csv');
+data = csvread('weather_in_basel.csv');
 n = 300;
 X = data(1:n, 1);
-Y = data(1:n, 9);
+Y = data(1:n, 3);
+
+yreal = data(n+1, 3);
 
 
 % Define the order of the polynomial for curve fitting
@@ -11,13 +13,14 @@ order = 3;
 coefficients = polyfit(X, Y, order);
 
 % Define the x-values for extrapolation
-x = n;
+x = n+1;
 
 % Evaluate the polynomial at the extrapolation point
 y = polyval(coefficients, x);
 
 % Output the extrapolated value
 y
+yreal
 
 % Plot the fitted polynomial curve
 x_fit = linspace(min(X), max(X), 100);  % Generate x-values for the curve
